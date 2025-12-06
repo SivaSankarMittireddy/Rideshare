@@ -1,0 +1,100 @@
+<div class="bookings-wrapper">
+  <!-- Header Section -->
+  <div class="bookings-header">
+    <div class="header-content">
+      <button class="btn btn-outline-secondary btn-sm" (click)="goBack()">
+        ← Back to Dashboard
+      </button>
+      <h1 class="page-title">My Bookings</h1>
+    </div>
+  </div>
+
+  <!-- Feedback Message -->
+  <div *ngIf="feedback" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ feedback }}
+    <button type="button" class="btn-close" (click)="feedback = ''"></button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="bookings-container">
+    <!-- Empty State -->
+    <div *ngIf="bookings.length === 0" class="empty-state">
+      <div class="empty-icon">📋</div>
+      <h3>No Bookings Yet</h3>
+      <p>You haven't booked any rides yet. Start by searching for available rides!</p>
+      <button class="btn btn-primary" (click)="searchRides()">
+        Search for Rides
+      </button>
+    </div>
+
+    <!-- Bookings Grid -->
+    <div *ngIf="bookings.length > 0" class="bookings-grid">
+      <div class="bookings-stats">
+        <div class="stat-item">
+          <span class="stat-number">{{ bookings.length }}</span>
+          <span class="stat-label">Total Bookings</span>
+        </div>
+      </div>
+
+      <div class="bookings-list">
+        <div class="booking-card" *ngFor="let booking of bookings">
+          <div class="booking-header">
+            <div class="booking-status">
+              <span class="status-badge">✓ Confirmed</span>
+              <span class="booking-id">ID: {{ booking.bookingId }}</span>
+            </div>
+            <div class="booking-date">{{ formatDate(booking.bookingDate) }}</div>
+          </div>
+
+          <div class="booking-body">
+            <!-- Passenger Info -->
+            <div class="info-section">
+              <h6 class="section-title">Passenger Details</h6>
+              <div class="info-row">
+                <span class="label">Your Employee ID:</span>
+                <span class="value">{{ booking.bookingEmployeeId }}</span>
+              </div>
+            </div>
+
+            <!-- Ride Info -->
+            <div class="info-section">
+              <h6 class="section-title">Ride Details</h6>
+              
+              <div class="ride-vehicle">
+                <span class="vehicle-icon">🚗</span>
+                <div class="vehicle-info">
+                  <strong>{{ booking.vehicleType }} - {{ booking.vehicleNo }}</strong>
+                  <small class="text-muted">Driver ID: {{ booking.rideOwnerId }}</small>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <span class="label">📍 Pickup:</span>
+                <span class="value">{{ booking.pickup }}</span>
+              </div>
+
+              <div class="info-row">
+                <span class="label">📍 Destination:</span>
+                <span class="value">{{ booking.destination }}</span>
+              </div>
+
+              <div class="info-row">
+                <span class="label">🕐 Ride Time:</span>
+                <span class="value">{{ formatTime(booking.time) }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-footer">
+            <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">
+              Back to Dashboard
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="cancelBooking(booking.bookingId)">
+              Cancel Booking
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

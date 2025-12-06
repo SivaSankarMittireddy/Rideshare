@@ -1,0 +1,156 @@
+<div class="dashboard-wrapper">
+  <!-- Navigation Bar -->
+  <nav class="dashboard-navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <span class="brand-icon">🚗</span>
+        <span class="brand-text">RideShare Pro</span>
+      </div>
+      <div class="navbar-menu">
+        <a href="#" class="navbar-item active">Dashboard</a>
+        <a href="#" class="navbar-item">My Rides</a>
+        <a href="#" class="navbar-item">Settings</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to RideShare Pro</h1>
+      <p>Share your ride and help colleagues save commute time</p>
+    </div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div class="dashboard-container">
+    <!-- Statistics Section -->
+    <div class="stats-section">
+      <div class="stat-card">
+        <div class="stat-icon">🚗</div>
+        <div class="stat-content">
+          <div class="stat-number">{{ carCount }}</div>
+          <div class="stat-label">Available Cars</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏍️</div>
+        <div class="stat-content">
+          <div class="stat-number">{{ bikeCount }}</div>
+          <div class="stat-label">Available Bikes</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div class="stat-content">
+          <div class="stat-number">{{ carCount + bikeCount }}</div>
+          <div class="stat-label">Total Rides</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Cards Section -->
+    <div class="action-section">
+      <h2 class="section-title">Quick Actions</h2>
+      
+      <div class="action-cards-grid">
+        <!-- Add Ride Card -->
+        <div class="action-card add-ride-card" (click)="navigateTo('add-ride')">
+          <div class="card-header-top">
+            <div class="card-icon">🚗</div>
+            <span class="card-badge">Create</span>
+          </div>
+          <h3 class="card-title">Add New Ride</h3>
+          <p class="card-description">Post a new ride for your colleagues to join</p>
+          <div class="card-features">
+            <span class="feature">Share vehicle details</span>
+            <span class="feature">Set departure time</span>
+            <span class="feature">Manage seats</span>
+          </div>
+          <div class="card-footer">
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- Search Ride Card -->
+        <div class="action-card search-ride-card" (click)="navigateTo('search-ride')">
+          <div class="card-header-top">
+            <div class="card-icon">🔍</div>
+            <span class="card-badge">Browse</span>
+          </div>
+          <h3 class="card-title">Search Rides</h3>
+          <p class="card-description">Find available rides matching your route</p>
+          <div class="card-features">
+            <span class="feature">Filter by location</span>
+            <span class="feature">View driver details</span>
+            <span class="feature">Book instantly</span>
+          </div>
+          <div class="card-footer">
+            <span class="arrow">→</span>
+          </div>
+        </div>
+
+        <!-- My Bookings Card -->
+        <div class="action-card bookings-card" (click)="navigateTo('my-bookings')">
+          <div class="card-header-top">
+            <div class="card-icon">📋</div>
+            <span class="card-badge badge-success">{{ bookingCount }}</span>
+          </div>
+          <h3 class="card-title">My Bookings</h3>
+          <p class="card-description">View all your confirmed ride bookings</p>
+          <div class="card-features">
+            <span class="feature">Track bookings</span>
+            <span class="feature">Cancel rides</span>
+            <span class="feature">View details</span>
+          </div>
+          <div class="card-footer">
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="activity-section">
+      <h2 class="section-title">Recent Activity</h2>
+      
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-icon success">✓</div>
+          <div class="activity-content">
+            <div class="activity-title">Ride Completed</div>
+            <div class="activity-time">Office to Tech Park - 2 hours ago</div>
+          </div>
+          <div class="activity-badge">+$8.50</div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon info">👤</div>
+          <div class="activity-content">
+            <div class="activity-title">New Booking Request</div>
+            <div class="activity-time">From Sarah on Monday ride - 4 hours ago</div>
+          </div>
+          <div class="activity-badge pending">Pending</div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon success">✓</div>
+          <div class="activity-content">
+            <div class="activity-title">Ride Posted</div>
+            <div class="activity-time">Tuesday morning commute - 1 day ago</div>
+          </div>
+          <div class="activity-badge">2/3 seats</div>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon info">⭐</div>
+          <div class="activity-content">
+            <div class="activity-title">New Rating Received</div>
+            <div class="activity-time">5-star rating from John - 2 days ago</div>
+          </div>
+          <div class="activity-badge">5.0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

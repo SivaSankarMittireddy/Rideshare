@@ -1,0 +1,115 @@
+<div class="page-bg">
+  <div class="form-container">
+    <!-- Card -->
+    <div class="form-card">
+      <!-- Card Header Bar -->
+      <div class="card-header-bar">
+        <div class="header-title-section">
+          <div class="header-icon">🚗</div>
+          <h2 class="header-title">Add New Ride</h2>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form #rideForm="ngForm" (ngSubmit)="onAddRide()" class="form-content">
+        <!-- Employee ID -->
+        <div class="form-field-group">
+          <label class="form-label">Employee ID <span class="required">*</span></label>
+          <input 
+            class="form-field-input" 
+            type="text"
+            placeholder="Enter your employee ID"
+            [(ngModel)]="rideData.ownerEmployeeId"
+            name="ownerEmployeeId"
+            required
+          />
+        </div>
+
+        <!-- Vehicle Type -->
+        <div class="form-field-group">
+          <label class="form-label">Vehicle Type <span class="required">*</span></label>
+          <select class="form-field-input form-field-select" 
+                  [(ngModel)]="rideData.vehicleType"
+                  name="vehicleType">
+            <option value="Bike">🏍️ Bike</option>
+            <option value="Car">🚗 Car</option>
+          </select>
+        </div>
+
+        <!-- Vehicle Number -->
+        <div class="form-field-group">
+          <label class="form-label">Vehicle Number <span class="required">*</span></label>
+          <input 
+            class="form-field-input" 
+            type="text"
+            placeholder="e.g., DL01AB1234"
+            [(ngModel)]="rideData.vehicleNo"
+            name="vehicleNo"
+            required
+          />
+        </div>
+
+        <!-- Vacant Seats -->
+        <div class="form-field-group">
+          <label class="form-label">Vacant Seats <span class="required">*</span></label>
+          <input 
+            type="number" 
+            class="form-field-input" 
+            placeholder="1-4"
+            min="1"
+            max="4"
+            [(ngModel)]="rideData.vacantSeats"
+            name="vacantSeats"
+            required
+          />
+        </div>
+
+        <!-- Departure Time -->
+        <div class="form-field-group">
+          <label class="form-label">Departure Time <span class="required">*</span></label>
+          <input 
+            type="datetime-local" 
+            class="form-field-input" 
+            [(ngModel)]="rideData.time"
+            name="time"
+            [min]="todayDate + 'T00:00'"
+            [max]="todayDate + 'T23:59'"
+            required
+          />
+          <small class="form-helper">Only today's dates are available</small>
+        </div>
+
+        <!-- Pickup Location -->
+        <div class="form-field-group">
+          <label class="form-label">Pickup Location <span class="required">*</span></label>
+          <input 
+            class="form-field-input" 
+            type="text"
+            placeholder="e.g., Central Office"
+            [(ngModel)]="rideData.pickupPoint"
+            name="pickupPoint"
+            required
+          />
+        </div>
+
+        <!-- Destination -->
+        <div class="form-field-group">
+          <label class="form-label">Destination <span class="required">*</span></label>
+          <input 
+            class="form-field-input" 
+            type="text"
+            placeholder="e.g., Tech Park, Sector 5"
+            [(ngModel)]="rideData.destination"
+            name="destination"
+            required
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit" [disabled]="rideForm.invalid">
+          Post Ride
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="search-container">
+  <div class="search-card">
+    <h3 class="search-title">🔍 Search Rides</h3>
+    
+    <form #searchForm="ngForm" class="search-form">
+      <!-- Vehicle Type -->
+      <div class="form-group">
+        <label>Vehicle Type</label>
+        <select class="form-control" 
+                [(ngModel)]="searchData.vehicleTypeFilter"
+                name="vehicleTypeFilter">
+          <option value="All">All Vehicles</option>
+          <option value="Bike">🏍️ Bike</option>
+          <option value="Car">🚗 Car</option>
+        </select>
+      </div>
+
+      <!-- Search Button -->
+      <button class="btn-search" type="button" (click)="onSearch()">Search Rides</button>
+
+      <!-- Clear Button -->
+      <button class="btn-clear" type="button" (click)="clearSearch()">Clear</button>
+    </form>
+  </div>
+
+  <!-- Search Results Table -->
+  <div *ngIf="showResults" class="results-container">
+    <h3 class="results-title">📋 Available Rides</h3>
+    
+    <div *ngIf="searchResults.length === 0" class="no-results">
+      No rides found matching your criteria.
+    </div>
+
+    <div *ngIf="searchResults.length > 0" class="table-wrapper">
+      <table class="rides-table">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Time</th>
+            <th>Vehicle</th>
+            <th>Seats</th>
+            <th>Driver ID</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ride of searchResults" class="ride-row">
+            <td>{{ ride.pickup }}</td>
+            <td>{{ ride.destination }}</td>
+            <td>{{ ride.time | date: 'HH:mm' }}</td>
+            <td>{{ ride.vehicleType }} - {{ ride.vehicleNo }}</td>
+            <td class="seats-cell">{{ ride.vacantSeats }}</td>
+            <td>{{ ride.employeeId }}</td>
+            <td>
+              <button class="btn-book" (click)="bookRide(ride)">Book</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,335 @@
+.search-container {
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* ============================================
+   SEARCH CARD
+   ============================================ */
+.search-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* ============================================
+   SEARCH FORM
+   ============================================ */
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+
+.form-control {
+  padding: 10px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.form-control:hover {
+  border-color: #94a3b8;
+}
+
+/* ============================================
+   SEARCH BUTTON
+   ============================================ */
+.btn-search {
+  padding: 11px 28px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  min-height: 40px;
+}
+
+.btn-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-search:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   CLEAR BUTTON
+   ============================================ */
+.btn-clear {
+  padding: 11px 28px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  min-height: 40px;
+}
+
+.btn-clear:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-clear:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESULTS CONTAINER
+   ============================================ */
+.results-container {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.results-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* ============================================
+   NO RESULTS MESSAGE
+   ============================================ */
+.no-results {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 2px dashed #e5e7eb;
+}
+
+/* ============================================
+   TABLE STYLES
+   ============================================ */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.rides-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.rides-table thead {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.rides-table th {
+  padding: 14px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 0.3px;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.rides-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.rides-table tbody tr:hover {
+  background: #f9fafb;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+}
+
+.rides-table td {
+  padding: 14px;
+  color: #1f2937;
+}
+
+.seats-cell {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+/* ============================================
+   ACTION BUTTON
+   ============================================ */
+.btn-book {
+  padding: 7px 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.btn-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-book:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .search-form {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    padding: 20px 15px;
+  }
+
+  .search-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .search-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .results-container {
+    padding: 20px;
+  }
+
+  .results-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-control {
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+
+  .btn-search {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .rides-table {
+    font-size: 12px;
+  }
+
+  .rides-table th,
+  .rides-table td {
+    padding: 10px;
+  }
+
+  .btn-book {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    padding: 15px 10px;
+  }
+
+  .search-card {
+    padding: 16px;
+  }
+
+  .search-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .results-container {
+    padding: 16px;
+  }
+
+  .results-title {
+    font-size: 16px;
+  }
+
+  .rides-table {
+    font-size: 11px;
+  }
+
+  .rides-table th,
+  .rides-table td {
+    padding: 8px;
+  }
+
+  .btn-book {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+}
